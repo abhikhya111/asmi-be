@@ -50,7 +50,8 @@ const userSchema = new mongoose.Schema({
       }
     }
   ],
-  carts: Array
+  carts: Array,
+  address: Array
 });
 
 userSchema.pre("save", async function (next) {

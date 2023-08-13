@@ -170,5 +170,38 @@ exports.deleteCartItem = async (req, res) => {
   }
 };
 
+exports.addAddress = async (req, res) => {
+  try {
+    const email = req.params.email;
+    const userDetails = await UserModel.findOne({ email: email })
+
+    if (userDetails) {
+      console.log("Details", userDetails);
+      const updatedUser = await UserModel.findOneAndUpdate(
+        { email:email },
+        { $push: { address: 
+          { 
+            fullName: req.body.address.fullName,
+            mobile: req.body.address.mobile,
+            address: req.body.address.address,
+            city: req.body.address.city,
+            state: req.body.address.state,
+            zip: req.body.address.zip,
+          } 
+          } },
+        { new: true }
+      );
+      return updatedUser;
+
+    }
+    else {
+      res.status(401).json({ error: "User not found" });
+    }
+  }
+  catch (error) {
+    console.log({ error: error.message })
+  }
+};
+
 
 

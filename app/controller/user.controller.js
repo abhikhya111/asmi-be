@@ -66,3 +66,15 @@ exports.deleteCartItem = async (req, res) => {
   }
 }
 
+
+exports.addAddress = async (req, res) => {
+  try{
+    const userDetails = await userService.addAddress(req, res);
+    console.log("address", userDetails);
+    res.status(201).json({ data: userDetails ,status: "success" });
+
+  }catch(err){
+      res.status(500).json({error: err.message})
+  }
+}
+
