@@ -24,8 +24,6 @@ const userSchema = new mongoose.Schema({
   },
   mobile: {
     type: String,
-    required: true,
-    unique: true
   },
   password: {
     type: String,
@@ -39,8 +37,6 @@ const userSchema = new mongoose.Schema({
   },
   quantity: {
     type: String,
-    required: true,
-    minlength: 100
   },
   tokens: [
     {
