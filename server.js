@@ -39,8 +39,8 @@ const URL = `mongodb+srv://abhikhya:ashi3666@crud.yjywtf4.mongodb.net/dummyDatab
         console.log('Error: ', error.message);
     }
 
-const productRouter = require("../backend/app/routes/product.route");
-const userRouter = require("../backend/app/routes/user.routes");
+const productRouter = require("../asmi-be/app/routes/product.route");
+const userRouter = require("../asmi-be/app/routes/user.routes");
 
 app.use("/api/products", productRouter);
 app.use("/api/users/", userRouter )
